@@ -1,0 +1,3 @@
+<http://termitup.oeg.fi.upm.es/resource/hola> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02s/core#Concept>.
+<http://termitup.oeg.fi.upm.es/resource/hola> <http://www.w3.org/2004/02s/core#example> "the worker signed an employment agreement and now works in a company with a salary and team work is important and labour law is more important".
+<http://termitup.oeg.fi.upm.es/resource/hola> <http://www.w3.org/2004/02s/core#prefLabel> "worker".
