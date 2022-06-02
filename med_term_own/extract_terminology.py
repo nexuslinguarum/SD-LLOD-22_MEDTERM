@@ -17,7 +17,7 @@ def get_indiv_text(file):
 def termitup():
     url = 'https://termitup.oeg.fi.upm.es/extract_terminology'
     # path_ = "C:/Users/carlo/Documents/med-terminology/Files_SPACCC/"
-    path_ = "C:/Users/carlo/Documents/med-terminology/Files_SPACCC/"
+    path_ = "./data/Files_SPACCC"
     # file_ = "S1135-76062007000300004-1.txt"
 
     files_ = [f for f in listdir(path_) if isfile(join(path_, f))]

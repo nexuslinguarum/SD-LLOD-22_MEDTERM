@@ -36,9 +36,12 @@ def post_process():
 
 
 def main():
-    path = 'C:/Users/carlo/Documents/med-terminology/termitup_request/'
-    save_path = path + "post_processing_files/"
-    data_path = path + "data/"
+    save_path = "./post_processing_files/"
+    data_path = "./data/"
+
+    # path = 'C:/Users/carlo/Documents/med-terminology/termitup_request/'
+    # save_path = path + "post_processing_files/"
+    # data_path = path + "data/"
     doc = "Text2TCS_results_pos.txt"
 
     common_words = get_common_words(data_path)
