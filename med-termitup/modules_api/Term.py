@@ -22,6 +22,7 @@ class Term:
     thesoz_id=""
     stw_id=""
     ilo_id=""
+    db_id=""
     context=""
     schema=""
     frequency=""
@@ -88,6 +89,7 @@ class Term:
     synonyms_ontolex={}
     translations_ontolex={}
     relations_relval={}
+    translations_db={}
     
     
     ### test
@@ -177,6 +179,7 @@ class Term:
         self.synonyms_ontolex={}
         self.translations_ontolex={}
         self.relations_relval={}
+        
 
 
 
