@@ -20,11 +20,10 @@ class TripleStore:
         return results["results"]["bindings"]
 
 
-class Wrapper:
+class Wrapper_SPARQL:
 
     def __init__(self, triplestore):
         self.ts = triplestore
-
 
     def get_le_ent(self, term):
         query = "SELECT ?le " \
@@ -100,34 +99,24 @@ class Wrapper:
             res.append(term)        
         return res  
 
-
     def dbnary_enrichment(self, term):
         enriched = dict()
-        le  = wrapper.get_le_ent(term)
+        le  = self.get_le_ent(term)
         if le:
-            form = wrapper.get_form_ent(le[0])
-            number = wrapper.get_number(form)
+            form = self.get_form_ent(le[0])
+            number = self.get_number(form)
+            enriched["source"] = le[0]
             enriched["number"] = number
-            phonetic_rep = wrapper.get_phonetic_rep(form)
+            phonetic_rep = self.get_phonetic_rep(form)
             enriched["phonetic_rep"] = phonetic_rep
-            trans = wrapper.get_translatiosn(le[0])
+            trans = self.get_translatiosn(le[0])
             enriched["translations"] =trans
         return enriched
-
 
     def dbnary_enrichment_list(self, terms):
         enriched_terms = dict()
         for el in terms:
             enriched_terms[el] = self.dbnary_enrichment(el)
+
         return enriched_terms
 
-
-
-
-
-terms = ["diabetes", "blabla", "viruela", "alzheimer"]
-dbnary_endpoint = "http://kaiko.getalp.org/sparql"
-wrapper = Wrapper(TripleStore(dbnary_endpoint))
-
-enrichment_dbnary = wrapper.dbnary_enrichment_list(terms)
-print(enrichment_dbnary)
