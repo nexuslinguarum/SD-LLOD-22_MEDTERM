@@ -1,0 +1,29 @@
+NOUN 	- noun
+VERB 	- verb
+PUNCT 	- puntuaction
+ADJ 	- adjective
+ADV     - adverb
+ADP 	- determinante
+PROPN 	- named entity (proper noun) 
+
+len = 1
+    ADV
+    ADJ
+    ADP
+    PUNCT
+    ¿VERB?
+
+len = 2
+	VERB + VERB
+    VERB + ADJ
+	VERB + ADV (mal etiquetados tras revisión de corpus)
+    NOUM + VERB (se confunde con palabras como 'vascular' y las pone como verbo) 
+    NOUN + VERB
+    ADV + ADJ
+    ADV + VERB
+    NOUN + ADV
+    VERB + ADV
+
+len = 3
+    ADJ + NOUN + ADJ
+    NOUN + VERB + NOUN
