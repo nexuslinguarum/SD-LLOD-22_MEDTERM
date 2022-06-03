@@ -31,8 +31,59 @@ def del_common_terms(df, common_terms):
     return df, del_terms
 
 
-def post_process():
-    pass
+def pos(df: pd.DataFrame):
+    del_index = []
+
+    i = 0
+    for row in df['tags']:
+
+        if 'ADV' in row:
+            del_index.append(i)
+
+        if 'ADJ' in row:
+            del_index.append(i)
+
+        if 'ADP' in row:
+            del_index.append(i)
+
+        if 'PUNCT' in row:
+            del_index.append(i)
+
+        if 'VERB VERB' in row:
+            del_index.append(i)
+
+        if 'VERB ADJ' in row:
+            del_index.append(i)
+
+        if 'VERB ADV' in row:
+            del_index.append(i)
+
+        if 'NOUN VERB' in row:
+            del_index.append(i)
+
+        if 'ADV ADJ' in row:
+            del_index.append(i)
+
+        if 'ADV VERB' in row:
+            del_index.append(i)
+
+        if 'NOUN ADV' in row:
+            del_index.append(i)
+
+        if 'VERB ADV' in row:
+            del_index.append(i)
+
+        if 'ADJ NOUN ADJ' in row:
+            del_index.append(i)
+
+        if 'NOUN VERB NOUN' in row:
+            del_index.append(i)
+
+        i += 1
+
+    df = df.drop(del_index, axis=0).reset_index(drop=True)
+
+    return df
 
 
 def main():
@@ -51,6 +102,9 @@ def main():
     df.to_csv(save_path + "Text2TCS_filtered_common_terms.csv", encoding="utf-8", sep="\t")
     with open(save_path + "deleted_terms.txt", 'w', encoding="utf-8") as f:
         f.write(str(del_terms))
+
+    df = pos(df)
+    df.to_csv(save_path + "Text2TCS_filtered_POS.csv", encoding="utf-8", sep="\t")
 
 
 if __name__ == "__main__":
